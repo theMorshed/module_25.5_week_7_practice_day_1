@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+int find_largest_smallest(int arr[], int length, int num);
+
 int main()
 {
-    int number, i, count = 0, k;
+    int number, i, count, k;
     scanf("%d", &number);
     int numbers[number];
 
@@ -12,13 +14,21 @@ int main()
 
     scanf("%d", &k);
 
-    for (i = 0; i < number; i++) {
-        if (numbers[i] != k) {
+    count = find_largest_smallest(numbers, number, k);
+    printf("%d\n", count);
+
+    return 0;
+}
+
+int find_largest_smallest(int arr[], int length, int num)
+{
+    int i, count = 0;
+
+    for (i = 0; i < length; i++) {
+        if (arr[i] != num) {
             count++;
         }
     }
 
-    printf("%d\n", count);
-
-    return 0;
+    return count;
 }
